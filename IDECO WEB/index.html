@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDECO</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════════ LOGIN ══════════════ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">IDE<span>CO</span></div>
+    <div class="login-sub">Portal Docente</div>
+
+    <div class="login-field">
+      <label>Usuario</label>
+      <input type="text" id="loginUser" placeholder="Ingresa tu usuario" autocomplete="username">
+    </div>
+    <div class="login-field">
+      <label>Contraseña</label>
+      <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Iniciar Sesión</button>
+    <div class="login-error" id="loginError"></div>
+    <div class="login-role">Acceso reservado para <strong>Docentes</strong></div>
+  </div>
+</div>
+
+<!-- ══════════════ APP ══════════════ -->
+<div id="appShell">
+  <header>
+    <div class="logo">IDE<span>CO</span></div>
+    <div class="header-right">
+      <button class="btn btn-ghost btn-sm" id="exportBtn">↓ Exportar CSV</button>
+      <button class="btn btn-accent btn-sm" id="openModalBtn">+ Estudiante</button>
+      <div class="user-chip">
+        <div class="user-dot" id="userDot"></div>
+        <span id="userLabel"></span>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Salir</button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <aside>
+      <div class="sidebar-top">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="searchInput" placeholder="Buscar estudiante…">
+        </div>
+        <div class="student-count" id="studentCount"></div>
+      </div>
+      <div class="student-list" id="studentList"></div>
+    </aside>
+    <main id="mainPanel">
+      <div class="empty-state">
+        <div class="icon">📋</div>
+        <h2>Selecciona un estudiante</h2>
+        <p>Haz clic en un nombre de la lista para ver su perfil y gestionar sus calificaciones.</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- MODAL: AGREGAR ESTUDIANTE -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2>Nuevo Estudiante</h2>
+    <div class="field">
+      <label>Nombre completo</label>
+      <input type="text" id="newName" placeholder="Ej: María García">
+    </div>
+    <div class="field">
+      <label>Código / ID (opcional)</label>
+      <input type="text" id="newId" placeholder="Ej: 2024-001">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cancelModal">Cancelar</button>
+      <button class="btn btn-accent" id="saveStudent">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
